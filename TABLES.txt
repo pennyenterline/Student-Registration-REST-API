@@ -1,0 +1,16 @@
+CREATE TABLE students (
+  id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL
+);
+
+CREATE TABLE courses (
+  id TEXT PRIMARY KEY
+);
+
+CREATE TABLE registrations (
+  student_id INTEGER,
+  course_id TEXT,
+  PRIMARY KEY (student_id, course_id),
+  FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE,
+  FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
+);
